@@ -510,7 +510,7 @@ func interface_2_0(source map[string]interface{}) (*interface_, error) {
 		"mac_address":   schema.OneOf(schema.Nil(""), schema.String()),
 		"effective_mtu": schema.ForceInt(),
 
-		"params": schema.OneOf(schema.Nil(""), schema.StringMap(schema.Any())),
+		"params": schema.OneOf(schema.Nil(""), schema.String(), schema.StringMap(schema.Any())),
 
 		"parents":  schema.List(schema.String()),
 		"children": schema.List(schema.String()),
