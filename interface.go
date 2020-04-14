@@ -96,7 +96,7 @@ func (i *interface_) VLAN() VLAN {
 }
 
 // Params implements Interface.
-func (i *interface_) Params() *interfaceParams {
+func (i *interface_) Params() InterfaceParams {
 	return i.params
 }
 
@@ -165,11 +165,11 @@ func (i *interfaceParams) BondMode() string {
 
 func interfaceParams_2_0(source map[string]interface{}) (*interfaceParams, error) {
 	fields := schema.Fields{
-		"bridge_stp":            schema.OneOf(schema.Nil(""), schema.Int()),
-		"bridge_fd":             schema.OneOf(schema.Nil(""), schema.Int()),
-		"bond_miimon":           schema.OneOf(schema.Nil(""), schema.Int()),
-		"bond_down_delay":       schema.OneOf(schema.Nil(""), schema.Int()),
-		"bond_up_delay":         schema.OneOf(schema.Nil(""), schema.Int()),
+		"bridge_stp":            schema.OneOf(schema.Nil(""), schema.ForceInt()),
+		"bridge_fd":             schema.OneOf(schema.Nil(""), schema.ForceInt()),
+		"bond_miimon":           schema.OneOf(schema.Nil(""), schema.ForceInt()),
+		"bond_down_delay":       schema.OneOf(schema.Nil(""), schema.ForceInt()),
+		"bond_up_delay":         schema.OneOf(schema.Nil(""), schema.ForceInt()),
 		"bond_lacp_rate":        schema.OneOf(schema.Nil(""), schema.String()),
 		"bond_xmit_hash_policy": schema.OneOf(schema.Nil(""), schema.String()),
 		"bond_mode":             schema.OneOf(schema.Nil(""), schema.String()),

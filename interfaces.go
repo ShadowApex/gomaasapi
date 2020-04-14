@@ -359,6 +359,8 @@ type Interface interface {
 	VLAN() VLAN
 	Links() []Link
 
+	Params() InterfaceParams
+
 	MACAddress() string
 	EffectiveMTU() int
 
@@ -378,6 +380,18 @@ type Interface interface {
 	// UnlinkSubnet will remove the Link to the subnet, and release the IP
 	// address associated if there is one.
 	UnlinkSubnet(Subnet) error
+}
+
+// InterfaceParams represents the network interface parameters of an interface.
+type InterfaceParams interface {
+	BridgeSTP() bool
+	BridgeFD() int
+	BondMiimon() int
+	BondDownDelay() int
+	BondUpDelay() int
+	BondLACPRate() string
+	BondXmitHashPolicy() string
+	BondMode() string
 }
 
 // Link represents a network link between an Interface and a Subnet.
