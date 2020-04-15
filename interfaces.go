@@ -47,6 +47,9 @@ type Controller interface {
 	// GetMachine gets a single machine
 	GetMachine(systemID string) (Machine, error)
 
+	// GetMachine gets the power parameters of a single machine
+	GetMachinePower(systemID string) (map[string]string, error)
+
 	// AllocateMachine will attempt to allocate a machine to the user.
 	// If successful, the allocated machine is returned.
 	AllocateMachine(AllocateMachineArgs) (Machine, ConstraintMatches, error)
