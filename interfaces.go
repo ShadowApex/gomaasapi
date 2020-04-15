@@ -234,6 +234,7 @@ type Machine interface {
 
 	IPAddresses() []string
 	PowerState() string
+	PowerType() string
 
 	// Devices returns a list of devices that match the params and have
 	// this Machine as the parent.
