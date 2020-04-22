@@ -489,6 +489,7 @@ func (m *machine) CreateBond(args CreateMachineBondArgs) (_ Interface, err error
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
+	response.controller = m.controller
 	return response, nil
 }
 
@@ -977,5 +978,6 @@ func (m *machine) CreateVolumeGroup(args CreateVolumeGroupArgs) (VolumeGroup, er
 	if err != nil {
 		return nil, errors.Trace(err)
 	}
+	response.controller = m.controller
 	return response, nil
 }
